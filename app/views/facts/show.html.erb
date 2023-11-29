@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Fact #<%= @the_fact.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/facts">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_fact/<%= @the_fact.id %>">
+          Delete fact
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Animal
+      </dt>
+      <dd>
+        <%= @the_fact.animal_id %>
+      </dd>
+
+      <dt>
+        Fun fact
+      </dt>
+      <dd>
+        <%= @the_fact.fun_fact %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_fact.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_fact.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit fact
+    </h2>
+
+    <form action="/modify_fact/<%= @the_fact.id %>"  method="post" >
+      <div>
+        <label for="animal_id_box">
+          Animal
+        </label>
+
+        <input type="text" id="animal_id_box" name="query_animal_id" value="<%= @the_fact.animal_id %>">
+      </div>
+
+      <div>
+        <label for="fun_fact_box">
+          Fun fact
+        </label>
+
+        <input type="text" id="fun_fact_box" name="query_fun_fact" value="<%= @the_fact.fun_fact %>">
+      </div>
+
+      <button>
+        Update fact
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

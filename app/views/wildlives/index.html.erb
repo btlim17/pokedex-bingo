@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all wildlives
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new wildlife
+    </h2>
+
+    <form action="/insert_wildlife" method="post">
+      <div>
+        <label for="park_id_box">
+          Park
+        </label>
+
+        <input type="text" id="park_id_box" name="query_park_id">
+      </div>
+
+      <div>
+        <label for="animal_id_box">
+          Animal
+        </label>
+
+        <input type="text" id="animal_id_box" name="query_animal_id">
+      </div>
+
+      <button>
+        Create wildlife
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Park
+        </th>
+
+        <th>
+          Animal
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_wildlives.each do |a_wildlife| %>
+      <tr>
+        <td>
+          <%= a_wildlife.id %>
+        </td>
+
+        <td>
+          <%= a_wildlife.park_id %>
+        </td>
+
+        <td>
+          <%= a_wildlife.animal_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_wildlife.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_wildlife.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/wildlives/<%= a_wildlife.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

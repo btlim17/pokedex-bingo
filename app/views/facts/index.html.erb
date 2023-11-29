@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all facts
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new fact
+    </h2>
+
+    <form action="/insert_fact" method="post">
+      <div>
+        <label for="animal_id_box">
+          Animal
+        </label>
+
+        <input type="text" id="animal_id_box" name="query_animal_id">
+      </div>
+
+      <div>
+        <label for="fun_fact_box">
+          Fun fact
+        </label>
+
+        <input type="text" id="fun_fact_box" name="query_fun_fact">
+      </div>
+
+      <button>
+        Create fact
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Animal
+        </th>
+
+        <th>
+          Fun fact
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_facts.each do |a_fact| %>
+      <tr>
+        <td>
+          <%= a_fact.id %>
+        </td>
+
+        <td>
+          <%= a_fact.animal_id %>
+        </td>
+
+        <td>
+          <%= a_fact.fun_fact %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_fact.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_fact.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/facts/<%= a_fact.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

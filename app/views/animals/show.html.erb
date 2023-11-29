@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Animal #<%= @the_animal.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/animals">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_animal/<%= @the_animal.id %>">
+          Delete animal
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_animal.name %>
+      </dd>
+
+      <dt>
+        Conservation status
+      </dt>
+      <dd>
+        <%= @the_animal.conservation_status %>
+      </dd>
+
+      <dt>
+        Est population
+      </dt>
+      <dd>
+        <%= @the_animal.est_population %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_animal.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_animal.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit animal
+    </h2>
+
+    <form action="/modify_animal/<%= @the_animal.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_animal.name %>">
+      </div>
+
+      <div>
+        <label for="conservation_status_box">
+          Conservation status
+        </label>
+
+        <input type="text" id="conservation_status_box" name="query_conservation_status" value="<%= @the_animal.conservation_status %>">
+      </div>
+
+      <div>
+        <label for="est_population_box">
+          Est population
+        </label>
+
+        <input type="text" id="est_population_box" name="query_est_population" value="<%= @the_animal.est_population %>">
+      </div>
+
+      <button>
+        Update animal
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

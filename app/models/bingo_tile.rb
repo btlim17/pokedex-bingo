@@ -1,0 +1,2 @@
+class BingoTile < ApplicationRecord
+end

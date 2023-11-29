@@ -1,0 +1,134 @@
+<div>
+  <div>
+    <h1>
+      List of all photos
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new photo
+    </h2>
+
+    <form action="/insert_photo" method="post">
+      <div>
+        <label for="animal_id_box">
+          Animal
+        </label>
+
+        <input type="text" id="animal_id_box" name="query_animal_id">
+      </div>
+
+      <div>
+        <label for="url_box">
+          Url
+        </label>
+
+        <input type="text" id="url_box" name="query_url">
+      </div>
+
+      <div>
+        <label for="caption_box">
+          Caption
+        </label>
+
+        <input type="text" id="caption_box" name="query_caption">
+      </div>
+
+      <div>
+        <label for="photo_type_box">
+          Photo type
+        </label>
+
+        <input type="text" id="photo_type_box" name="query_photo_type">
+      </div>
+
+      <button>
+        Create photo
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Animal
+        </th>
+
+        <th>
+          Url
+        </th>
+
+        <th>
+          Caption
+        </th>
+
+        <th>
+          Photo type
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_photos.each do |a_photo| %>
+      <tr>
+        <td>
+          <%= a_photo.id %>
+        </td>
+
+        <td>
+          <%= a_photo.animal_id %>
+        </td>
+
+        <td>
+          <%= a_photo.url %>
+        </td>
+
+        <td>
+          <%= a_photo.caption %>
+        </td>
+
+        <td>
+          <%= a_photo.photo_type %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_photo.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_photo.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/photos/<%= a_photo.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

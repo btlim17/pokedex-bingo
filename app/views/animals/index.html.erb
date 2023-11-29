@@ -1,0 +1,118 @@
+<div>
+  <div>
+    <h1>
+      List of all animals
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new animal
+    </h2>
+
+    <form action="/insert_animal" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="conservation_status_box">
+          Conservation status
+        </label>
+
+        <input type="text" id="conservation_status_box" name="query_conservation_status">
+      </div>
+
+      <div>
+        <label for="est_population_box">
+          Est population
+        </label>
+
+        <input type="text" id="est_population_box" name="query_est_population">
+      </div>
+
+      <button>
+        Create animal
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Conservation status
+        </th>
+
+        <th>
+          Est population
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_animals.each do |an_animal| %>
+      <tr>
+        <td>
+          <%= an_animal.id %>
+        </td>
+
+        <td>
+          <%= an_animal.name %>
+        </td>
+
+        <td>
+          <%= an_animal.conservation_status %>
+        </td>
+
+        <td>
+          <%= an_animal.est_population %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(an_animal.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(an_animal.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/animals/<%= an_animal.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

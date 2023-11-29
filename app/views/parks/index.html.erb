@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all parks
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new park
+    </h2>
+
+    <form action="/insert_park" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="location_box">
+          Location
+        </label>
+
+        <input type="text" id="location_box" name="query_location">
+      </div>
+
+      <button>
+        Create park
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Location
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_parks.each do |a_park| %>
+      <tr>
+        <td>
+          <%= a_park.id %>
+        </td>
+
+        <td>
+          <%= a_park.name %>
+        </td>
+
+        <td>
+          <%= a_park.location %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_park.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_park.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/parks/<%= a_park.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

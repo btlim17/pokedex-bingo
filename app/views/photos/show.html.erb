@@ -1,0 +1,116 @@
+<div>
+  <div>
+    <h1>
+      Photo #<%= @the_photo.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/photos">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_photo/<%= @the_photo.id %>">
+          Delete photo
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Animal
+      </dt>
+      <dd>
+        <%= @the_photo.animal_id %>
+      </dd>
+
+      <dt>
+        Url
+      </dt>
+      <dd>
+        <%= @the_photo.url %>
+      </dd>
+
+      <dt>
+        Caption
+      </dt>
+      <dd>
+        <%= @the_photo.caption %>
+      </dd>
+
+      <dt>
+        Photo type
+      </dt>
+      <dd>
+        <%= @the_photo.photo_type %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_photo.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_photo.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit photo
+    </h2>
+
+    <form action="/modify_photo/<%= @the_photo.id %>"  method="post" >
+      <div>
+        <label for="animal_id_box">
+          Animal
+        </label>
+
+        <input type="text" id="animal_id_box" name="query_animal_id" value="<%= @the_photo.animal_id %>">
+      </div>
+
+      <div>
+        <label for="url_box">
+          Url
+        </label>
+
+        <input type="text" id="url_box" name="query_url" value="<%= @the_photo.url %>">
+      </div>
+
+      <div>
+        <label for="caption_box">
+          Caption
+        </label>
+
+        <input type="text" id="caption_box" name="query_caption" value="<%= @the_photo.caption %>">
+      </div>
+
+      <div>
+        <label for="photo_type_box">
+          Photo type
+        </label>
+
+        <input type="text" id="photo_type_box" name="query_photo_type" value="<%= @the_photo.photo_type %>">
+      </div>
+
+      <button>
+        Update photo
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

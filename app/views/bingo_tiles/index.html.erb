@@ -1,0 +1,132 @@
+<div>
+  <div>
+    <h1>
+      List of all bingo tiles
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new bingo tile
+    </h2>
+
+    <form action="/insert_bingo_tile" method="post">
+      <div>
+        <label for="animal_id_box">
+          Animal
+        </label>
+
+        <input type="text" id="animal_id_box" name="query_animal_id">
+      </div>
+
+      <div>
+        <label for="bingo_board_id_box">
+          Bingo board
+        </label>
+
+        <input type="text" id="bingo_board_id_box" name="query_bingo_board_id">
+      </div>
+
+      <div>
+        <label for="position_box">
+          Position
+        </label>
+
+        <input type="text" id="position_box" name="query_position">
+      </div>
+
+      <div>
+        <input type="checkbox" id="solved_box" name="query_solved" value="1">
+
+        <label for="solved_box">Solved</label>
+      </div>
+
+      <button>
+        Create bingo tile
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Animal
+        </th>
+
+        <th>
+          Bingo board
+        </th>
+
+        <th>
+          Position
+        </th>
+
+        <th>
+          Solved
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_bingo_tiles.each do |a_bingo_tile| %>
+      <tr>
+        <td>
+          <%= a_bingo_tile.id %>
+        </td>
+
+        <td>
+          <%= a_bingo_tile.animal_id %>
+        </td>
+
+        <td>
+          <%= a_bingo_tile.bingo_board_id %>
+        </td>
+
+        <td>
+          <%= a_bingo_tile.position %>
+        </td>
+
+        <td>
+          <%= a_bingo_tile.solved %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_bingo_tile.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_bingo_tile.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/bingo_tiles/<%= a_bingo_tile.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

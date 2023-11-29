@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Conservation ctum #<%= @the_conservation_ctum.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/conservation_cta">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_conservation_ctum/<%= @the_conservation_ctum.id %>">
+          Delete conservation ctum
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_conservation_ctum.name %>
+      </dd>
+
+      <dt>
+        Animal
+      </dt>
+      <dd>
+        <%= @the_conservation_ctum.animal_id %>
+      </dd>
+
+      <dt>
+        Url
+      </dt>
+      <dd>
+        <%= @the_conservation_ctum.url %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_conservation_ctum.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_conservation_ctum.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit conservation ctum
+    </h2>
+
+    <form action="/modify_conservation_ctum/<%= @the_conservation_ctum.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_conservation_ctum.name %>">
+      </div>
+
+      <div>
+        <label for="animal_id_box">
+          Animal
+        </label>
+
+        <input type="text" id="animal_id_box" name="query_animal_id" value="<%= @the_conservation_ctum.animal_id %>">
+      </div>
+
+      <div>
+        <label for="url_box">
+          Url
+        </label>
+
+        <input type="text" id="url_box" name="query_url" value="<%= @the_conservation_ctum.url %>">
+      </div>
+
+      <button>
+        Update conservation ctum
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

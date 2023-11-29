@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all bingo boards
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new bingo board
+    </h2>
+
+    <form action="/insert_bingo_board" method="post">
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="park_id_box">
+          Park
+        </label>
+
+        <input type="text" id="park_id_box" name="query_park_id">
+      </div>
+
+      <button>
+        Create bingo board
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Park
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_bingo_boards.each do |a_bingo_board| %>
+      <tr>
+        <td>
+          <%= a_bingo_board.id %>
+        </td>
+
+        <td>
+          <%= a_bingo_board.user_id %>
+        </td>
+
+        <td>
+          <%= a_bingo_board.park_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_bingo_board.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_bingo_board.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/bingo_boards/<%= a_bingo_board.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

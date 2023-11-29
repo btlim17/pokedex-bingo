@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Wildlife #<%= @the_wildlife.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/wildlives">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_wildlife/<%= @the_wildlife.id %>">
+          Delete wildlife
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Park
+      </dt>
+      <dd>
+        <%= @the_wildlife.park_id %>
+      </dd>
+
+      <dt>
+        Animal
+      </dt>
+      <dd>
+        <%= @the_wildlife.animal_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_wildlife.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_wildlife.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit wildlife
+    </h2>
+
+    <form action="/modify_wildlife/<%= @the_wildlife.id %>"  method="post" >
+      <div>
+        <label for="park_id_box">
+          Park
+        </label>
+
+        <input type="text" id="park_id_box" name="query_park_id" value="<%= @the_wildlife.park_id %>">
+      </div>
+
+      <div>
+        <label for="animal_id_box">
+          Animal
+        </label>
+
+        <input type="text" id="animal_id_box" name="query_animal_id" value="<%= @the_wildlife.animal_id %>">
+      </div>
+
+      <button>
+        Update wildlife
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

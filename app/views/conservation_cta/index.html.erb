@@ -1,0 +1,118 @@
+<div>
+  <div>
+    <h1>
+      List of all conservation cta
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new conservation ctum
+    </h2>
+
+    <form action="/insert_conservation_ctum" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="animal_id_box">
+          Animal
+        </label>
+
+        <input type="text" id="animal_id_box" name="query_animal_id">
+      </div>
+
+      <div>
+        <label for="url_box">
+          Url
+        </label>
+
+        <input type="text" id="url_box" name="query_url">
+      </div>
+
+      <button>
+        Create conservation ctum
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Animal
+        </th>
+
+        <th>
+          Url
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_conservation_cta.each do |a_conservation_ctum| %>
+      <tr>
+        <td>
+          <%= a_conservation_ctum.id %>
+        </td>
+
+        <td>
+          <%= a_conservation_ctum.name %>
+        </td>
+
+        <td>
+          <%= a_conservation_ctum.animal_id %>
+        </td>
+
+        <td>
+          <%= a_conservation_ctum.url %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_conservation_ctum.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_conservation_ctum.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/conservation_cta/<%= a_conservation_ctum.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

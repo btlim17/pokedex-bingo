@@ -1,0 +1,116 @@
+<div>
+  <div>
+    <h1>
+      Bingo tile #<%= @the_bingo_tile.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/bingo_tiles">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_bingo_tile/<%= @the_bingo_tile.id %>">
+          Delete bingo tile
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Animal
+      </dt>
+      <dd>
+        <%= @the_bingo_tile.animal_id %>
+      </dd>
+
+      <dt>
+        Bingo board
+      </dt>
+      <dd>
+        <%= @the_bingo_tile.bingo_board_id %>
+      </dd>
+
+      <dt>
+        Position
+      </dt>
+      <dd>
+        <%= @the_bingo_tile.position %>
+      </dd>
+
+      <dt>
+        Solved
+      </dt>
+      <dd>
+        <%= @the_bingo_tile.solved %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_bingo_tile.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_bingo_tile.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit bingo tile
+    </h2>
+
+    <form action="/modify_bingo_tile/<%= @the_bingo_tile.id %>"  method="post" >
+      <div>
+        <label for="animal_id_box">
+          Animal
+        </label>
+
+        <input type="text" id="animal_id_box" name="query_animal_id" value="<%= @the_bingo_tile.animal_id %>">
+      </div>
+
+      <div>
+        <label for="bingo_board_id_box">
+          Bingo board
+        </label>
+
+        <input type="text" id="bingo_board_id_box" name="query_bingo_board_id" value="<%= @the_bingo_tile.bingo_board_id %>">
+      </div>
+
+      <div>
+        <label for="position_box">
+          Position
+        </label>
+
+        <input type="text" id="position_box" name="query_position" value="<%= @the_bingo_tile.position %>">
+      </div>
+
+      <div>
+        <input type="checkbox" id="solved_box" name="query_solved" value="1" <%= "checked" if @the_bingo_tile.solved %>>
+
+        <label for="solved_box">
+            Solved
+        </label>
+      </div>
+
+      <button>
+        Update bingo tile
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
