@@ -18,8 +18,8 @@
       </div>
     </div>
 
-<div>
-<table border = "1">
+<div class="container px-1">
+<table class="table table-bordered">
   <tr>
     <th width="20%">B</th>
 		<th width="20%">I</th>
@@ -66,54 +66,54 @@
 </table>
 </div>
 
-    <dl>
+<!--    <dl>
       <dt>
         User
       </dt>
       <dd>
-        <%= @the_bingo_board.user_id %>
-      </dd>
+        <%#= @the_bingo_board.user_id %>-->
+<!--      </dd>
 
       <dt>
         Park
       </dt>
       <dd>
-        <%= @the_bingo_board.park_id %>
-      </dd>
+        <%#= @the_bingo_board.park_id %>-->
+<!--      </dd>
 
       <dt>
         Created at
       </dt>
       <dd>
-        <%= time_ago_in_words(@the_bingo_board.created_at) %> ago
-      </dd>
+        <%#= time_ago_in_words(@the_bingo_board.created_at) %> ago-->
+<!--      </dd>
 
       <dt>
         Updated at
       </dt>
       <dd>
-        <%= time_ago_in_words(@the_bingo_board.updated_at) %> ago
-      </dd>
+        <%#= time_ago_in_words(@the_bingo_board.updated_at) %> ago-->
+<!--      </dd>
     </dl>
   </div>
 </div>
 
-<hr>
+<hr>-->
 
 
-<div>
+<!--<div>
   <div>
     <h2>
       Edit bingo board
     </h2>
 
-    <form action="/modify_bingo_board/<%= @the_bingo_board.id %>"  method="post" >
+    <form action="/modify_bingo_board/<%#= @the_bingo_board.id %>"  method="post" >
       <div>
         <label for="user_id_box">
           User
         </label>
 
-        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_bingo_board.user_id %>">
+        <input type="text" id="user_id_box" name="query_user_id" value="<%#= @the_bingo_board.user_id %>">
       </div>
 
       <div>
@@ -121,7 +121,7 @@
           Park
         </label>
 
-        <input type="text" id="park_id_box" name="query_park_id" value="<%= @the_bingo_board.park_id %>">
+        <input type="text" id="park_id_box" name="query_park_id" value="<%#= @the_bingo_board.park_id %>">
       </div>
 
       <button>
@@ -130,5 +130,5 @@
     </form>
   </div>
 </div>
-
-<hr>
+-->
+<!--<hr>-->

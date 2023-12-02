@@ -24,7 +24,7 @@ class BingoBoardsController < ApplicationController
 
     if the_bingo_board.valid?
       the_bingo_board.save
-      redirect_to("/bingo_boards", { :notice => "Bingo board created successfully." })
+      redirect_to("/bingo_boards/#{the_bingo_board.id}", { :notice => "Bingo board created successfully." })
     else
       redirect_to("/bingo_boards", { :alert => the_bingo_board.errors.full_messages.to_sentence })
     end

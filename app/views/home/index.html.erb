@@ -8,14 +8,16 @@
 <p>
   <div>
     <% if current_user!= nil%>
-    <h3>Serengeti Park Bingos</h3>
+    <h4>Serengeti Park Bingo Boards</h4>
     <!--<a href="/insert_board" method = "post">Play a New Game</a>-->
       <p>
-        <form action="/insert_board" method = "post">
+        <form action="/insert_bingo_board" method = "post">
+        <input type="hidden" id="park_id_box" name="query_park_id" value="1">
+        <input type="hidden" id="user_id_box" name="query_user_id" value="<%= current_user.id %>">
         <div><button class="btn btn-primary">Play a New Game</button></div>
       </p>
       </form>
-      
+
       <%else%>
       Must be <a href="/users/sign_in">signed in</a> to add a new board.
       <%end%>
