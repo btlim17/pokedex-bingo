@@ -5,3 +5,19 @@
     </h1>
   </div>
 </div>
+<p>
+  <div>
+    <% if current_user!= nil%>
+    <h3>Serengeti Park Bingos</h3>
+    <!--<a href="/insert_board" method = "post">Play a New Game</a>-->
+      <p>
+        <form action="/insert_board" method = "post">
+        <div><button class="btn btn-primary">Play a New Game</button></div>
+      </p>
+      </form>
+      
+      <%else%>
+      Must be <a href="/users/sign_in">signed in</a> to add a new board.
+      <%end%>
+  </div>
+</p>
