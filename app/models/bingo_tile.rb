@@ -11,5 +11,6 @@
 #  bingo_board_id :integer
 #
 class BingoTile < ApplicationRecord
-  belongs_to(:board, :class_name => "BingoBoard", :foreign_key => "bing_board_id")
+  belongs_to(:board, :class_name => "BingoBoard", :foreign_key => "bingo_board_id")
+  belongs_to(:animal, :class_name=>"Animal", :foreign_key=>"animal_id")
 end

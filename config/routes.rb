@@ -42,7 +42,7 @@ Rails.application.routes.draw do
   # Routes for the Bingo tile resource:
 
   # CREATE
-  post("/insert_bingo_tile", { :controller => "bingo_tiles", :action => "create" })
+  post("/bingo_tiles/:path_id/insert_tile", { :controller => "bingo_tiles", :action => "create" })
           
   # READ
   get("/bingo_tiles", { :controller => "bingo_tiles", :action => "index" })

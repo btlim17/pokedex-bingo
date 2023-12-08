@@ -11,4 +11,5 @@
 #  animal_id  :integer
 #
 class Photo < ApplicationRecord
+  belongs_to(:animal, :class_name=>"Animal", :foreign_key=>"animal_id")
 end

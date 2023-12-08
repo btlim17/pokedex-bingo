@@ -12,6 +12,17 @@
       </div>
 
       <div>
+        <form action="/bingo_tiles/<%= @the_bingo_board.id %>/insert_tile" method ="post">
+        <button>
+        Generate tiles
+        </button>
+        </form>
+       <!-- <a href="/bingo_tiles/<%#= @the_bingo_board.id %>/insert_tile">
+          Generate tiles
+        </a>-->
+      </div>
+
+      <div>
         <a href="/delete_bingo_board/<%= @the_bingo_board.id %>">
           Delete bingo board
         </a>
@@ -29,7 +40,11 @@
   </tr>
   <tr>
   <%# @bingo_board.tile.each do |tile|%>
-    <td id = "square0">@the_bingo_board.tiles.where({:position => "0"})</td>
+  <% if @the_bingo_board.tiles.where({:position=>0}).at(0).solved == true %>
+    <td id = "square0" class="table-success">
+    <% else %>
+    <td id = "square0"><form action="/bingo_tiles/update" method = "post"><button><%= @the_bingo_board.tiles.where({:position=>0}).at(0).animal.name%></button></form></td>
+  <% end %>
     <td id = "square1">@the_bingo_board.tiles.where({:position => "0"})</td>
     <td id = "square2">@the_bingo_board.tiles.where({:position => "0"})</td>
     <td id = "square3">@the_bingo_board.tiles.where({:position => "0"})</td>

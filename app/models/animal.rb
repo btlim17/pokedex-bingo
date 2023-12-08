@@ -10,4 +10,5 @@
 #  updated_at          :datetime         not null
 #
 class Animal < ApplicationRecord
+  has_many(:photos, :class_name => "Photo", :foreign_key=>"animal_id")
 end
