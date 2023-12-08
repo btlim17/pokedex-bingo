@@ -22,13 +22,12 @@ class BingoTilesController < ApplicationController
     population = (0..28).to_a.sample(24)
     while x < 24 do
     the_bingo_tile = BingoTile.new
-    the_bingo_tile.animal_id = population.at(0)
+    the_bingo_tile.animal_id = population.at(x)
     the_bingo_tile.bingo_board_id = params.fetch("path_id")
-    the_bingo_tile.position = 0
+    the_bingo_tile.position = x
     the_bingo_tile.solved = false
     the_bingo_tile.save
     x = x + 1
-    pp x
     end
     redirect_to("/bingo_boards/#{the_bingo_tile.bingo_board_id}", { :notice => "Bingo tiles created successfully." })
     # if the_bingo_tile.valid?
@@ -42,17 +41,15 @@ class BingoTilesController < ApplicationController
   def update
     the_id = params.fetch("path_id")
     the_bingo_tile = BingoTile.where({ :id => the_id }).at(0)
-
-    the_bingo_tile.animal_id = params.fetch("query_animal_id")
-    the_bingo_tile.bingo_board_id = params.fetch("query_bingo_board_id")
-    the_bingo_tile.position = params.fetch("query_position")
-    the_bingo_tile.solved = params.fetch("query_solved", false)
+    the_bingo_tile.solved = true
+    the_bingo_tile.save
+    pp the_bingo_tile.solved
 
     if the_bingo_tile.valid?
       the_bingo_tile.save
-      redirect_to("/bingo_tiles/#{the_bingo_tile.id}", { :notice => "Bingo tile updated successfully."} )
+      redirect_to("/bingo_boards/#{the_bingo_tile.bingo_board_id}", { :notice => "Bingo tile updated successfully."} )
     else
-      redirect_to("/bingo_tiles/#{the_bingo_tile.id}", { :alert => the_bingo_tile.errors.full_messages.to_sentence })
+      redirect_to("/bingo_boards/#{the_bingo_tile.bingo_board_id}", { :alert => the_bingo_tile.errors.full_messages.to_sentence })
     end
   end
 

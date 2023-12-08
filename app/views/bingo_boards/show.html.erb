@@ -12,17 +12,6 @@
       </div>
 
       <div>
-        <form action="/bingo_tiles/<%= @the_bingo_board.id %>/insert_tile" method ="post">
-        <button>
-        Generate tiles
-        </button>
-        </form>
-       <!-- <a href="/bingo_tiles/<%#= @the_bingo_board.id %>/insert_tile">
-          Generate tiles
-        </a>-->
-      </div>
-
-      <div>
         <a href="/delete_bingo_board/<%= @the_bingo_board.id %>">
           Delete bingo board
         </a>
@@ -41,44 +30,421 @@
   <tr>
   <%# @bingo_board.tile.each do |tile|%>
   <% if @the_bingo_board.tiles.where({:position=>0}).at(0).solved == true %>
-    <td id = "square0" class="table-success"> <form action="/bingo_tiles/update" method = "post" class = "btn btn-outline-info"><button><%= @the_bingo_board.tiles.where({:position=>0}).at(0).animal.name%></button></form>
-    <% else %>
-    <td id = "square0"><form action="/bingo_tiles/update" method = "post" class = "btn btn-success"><button><%= @the_bingo_board.tiles.where({:position=>0}).at(0).animal.name%></button></form></td>
+    <td id = "square0" class="table-success"> 
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>0}).at(0).id%>" method = "post" class = "btn btn-outline-success">
+        <button class = "btn btn-success">
+          <%= @the_bingo_board.tiles.where({:position=>0}).at(0).animal.name%>
+        </button>
+      </form>
+  <% else %>
+    <td id = "square0">
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>0}).at(0).id%>" method = "post"">
+        <button>
+          <%= @the_bingo_board.tiles.where({:position=>0}).at(0).animal.name%>
+        </button>
+      </form>
+    </td>
   <% end %>
-    <td id = "square1">@the_bingo_board.tiles.where({:position => "0"})</td>
-    <td id = "square2">@the_bingo_board.tiles.where({:position => "0"})</td>
-    <td id = "square3">@the_bingo_board.tiles.where({:position => "0"})</td>
-    <td id = "square4">@the_bingo_board.tiles.where({:position => "0"})</td>
+  <% if @the_bingo_board.tiles.where({:position=>1}).at(0).solved == true %>
+    <td id = "square1" class="table-success"> 
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>1}).at(0).id%>" method = "post" class = "btn btn-outline-success">
+        <button class = "btn btn-success">
+          <%= @the_bingo_board.tiles.where({:position=>1}).at(0).animal.name%>
+        </button>
+      </form>
+  <% else %>
+    <td id = "square1">
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>1}).at(0).id%>" method = "post">
+        <button>
+          <%= @the_bingo_board.tiles.where({:position=>1}).at(0).animal.name%>
+        </button>
+      </form>
+    </td>
+  <% end %>
+    
+  <% if @the_bingo_board.tiles.where({:position=>2}).at(0).solved == true %>
+    <td id = "square2" class="table-success"> 
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>2}).at(0).id%>" method = "post" class = "btn btn-outline-success">
+        <button class = "btn btn-success">
+          <%= @the_bingo_board.tiles.where({:position=>2}).at(0).animal.name%>
+        </button>
+      </form>
+  <% else %>
+    <td id = "square2">
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>2}).at(0).id%>" method = "post"">
+        <button>
+          <%= @the_bingo_board.tiles.where({:position=>2}).at(0).animal.name%>
+        </button>
+      </form>
+    </td>
+  <% end %>
+  
+    <% if @the_bingo_board.tiles.where({:position=>3}).at(0).solved == true %>
+    <td id = "square3" class="table-success"> 
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>3}).at(0).id%>" method = "post" class = "btn btn-outline-success">
+        <button class = "btn btn-success">
+          <%= @the_bingo_board.tiles.where({:position=>3}).at(0).animal.name%>
+        </button>
+      </form>
+  <% else %>
+    <td id = "square3">
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>3}).at(0).id%>" method = "post"">
+        <button>
+          <%= @the_bingo_board.tiles.where({:position=>3}).at(0).animal.name%>
+        </button>
+      </form>
+    </td>
+  <% end %>
+    
+    <% if @the_bingo_board.tiles.where({:position=>4}).at(0).solved == true %>
+    <td id = "square4" class="table-success"> 
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>4}).at(0).id%>" method = "post" class = "btn btn-outline-success">
+        <button class = "btn btn-success">
+          <%= @the_bingo_board.tiles.where({:position=>4}).at(0).animal.name%>
+        </button>
+      </form>
+  <% else %>
+    <td id = "square4">
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>4}).at(0).id%>" method = "post"">
+        <button>
+          <%= @the_bingo_board.tiles.where({:position=>4}).at(0).animal.name%>
+        </button>
+      </form>
+    </td>
+  <% end %>
   </tr>
   <tr>
-    <td id = "square5">@the_bingo_board.tiles.where({:position => "0"})</td>
-    <td id = "square6">@the_bingo_board.tiles.where({:position => "0"})</td>
-    <td id = "square7">@the_bingo_board.tiles.where({:position => "0"})</td>
-    <td id = "square8">@the_bingo_board.tiles.where({:position => "0"})</td>
-    <td id = "square9">@the_bingo_board.tiles.where({:position => "0"})</td>
+    <% if @the_bingo_board.tiles.where({:position=>5}).at(0).solved == true %>
+    <td id = "square5" class="table-success"> 
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>5}).at(0).id%>" method = "post" class = "btn btn-outline-success">
+        <button class = "btn btn-success">
+          <%= @the_bingo_board.tiles.where({:position=>5}).at(0).animal.name%>
+        </button>
+      </form>
+  <% else %>
+    <td id = "square5">
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>5}).at(0).id%>" method = "post"">
+        <button>
+          <%= @the_bingo_board.tiles.where({:position=>5}).at(0).animal.name%>
+        </button>
+      </form>
+    </td>
+  <% end %>
+    
+  <% if @the_bingo_board.tiles.where({:position=>6}).at(0).solved == true %>
+    <td id = "square6" class="table-success"> 
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>6}).at(0).id%>" method = "post" class = "btn btn-outline-success">
+        <button class = "btn btn-success">
+          <%= @the_bingo_board.tiles.where({:position=>6}).at(0).animal.name%>
+        </button>
+      </form>
+  <% else %>
+    <td id = "square6">
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>6}).at(0).id%>" method = "post"">
+        <button>
+          <%= @the_bingo_board.tiles.where({:position=>6}).at(0).animal.name%>
+        </button>
+      </form>
+    </td>
+  <% end %>
+
+  <% if @the_bingo_board.tiles.where({:position=>7}).at(0).solved == true %>
+    <td id = "square7" class="table-success"> 
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>7}).at(0).id%>" method = "post" class = "btn btn-outline-success">
+        <button class = "btn btn-success">
+          <%= @the_bingo_board.tiles.where({:position=>7}).at(0).animal.name%>
+        </button>
+      </form>
+  <% else %>
+    <td id = "square7">
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>7}).at(0).id%>" method = "post"">
+        <button>
+          <%= @the_bingo_board.tiles.where({:position=>7}).at(0).animal.name%>
+        </button>
+      </form>
+    </td>
+  <% end %>
+
+  <% if @the_bingo_board.tiles.where({:position=>8}).at(0).solved == true %>
+    <td id = "square8" class="table-success"> 
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>8}).at(0).id%>" method = "post" class = "btn btn-outline-success">
+        <button class = "btn btn-success">
+          <%= @the_bingo_board.tiles.where({:position=>8}).at(0).animal.name%>
+        </button>
+      </form>
+  <% else %>
+    <td id = "square8">
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>8}).at(0).id%>" method = "post"">
+        <button>
+          <%= @the_bingo_board.tiles.where({:position=>8}).at(0).animal.name%>
+        </button>
+      </form>
+    </td>
+  <% end %>
+
+    <% if @the_bingo_board.tiles.where({:position=>9}).at(0).solved == true %>
+    <td id = "square9" class="table-success"> 
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>9}).at(0).id%>" method = "post" class = "btn btn-outline-success">
+        <button class = "btn btn-success">
+          <%= @the_bingo_board.tiles.where({:position=>9}).at(0).animal.name%>
+        </button>
+      </form>
+  <% else %>
+    <td id = "square9">
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>9}).at(0).id%>" method = "post"">
+        <button>
+          <%= @the_bingo_board.tiles.where({:position=>9}).at(0).animal.name%>
+        </button>
+      </form>
+    </td>
+  <% end %>
   </tr>
   <tr>
-    <td id = "square10">@the_bingo_board.tiles.where({:position => "0"})</td>
-    <td id = "square11">@the_bingo_board.tiles.where({:position => "0"})</td>
-    <td id = "free">Free</td>
-    <td id = "square12">@the_bingo_board.tiles.where({:position => "0"})</td>
-    <td id = "square13">@the_bingo_board.tiles.where({:position => "0"})</td>
+  <% if @the_bingo_board.tiles.where({:position=>10}).at(0).solved == true %>
+    <td id = "square10" class="table-success"> 
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>10}).at(0).id%>" method = "post" class = "btn btn-outline-success">
+        <button class = "btn btn-success">
+          <%= @the_bingo_board.tiles.where({:position=>10}).at(0).animal.name%>
+        </button>
+      </form>
+  <% else %>
+    <td id = "square10">
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>10}).at(0).id%>" method = "post"">
+        <button>
+          <%= @the_bingo_board.tiles.where({:position=>10}).at(0).animal.name%>
+        </button>
+      </form>
+    </td>
+  <% end %>
+
+  <% if @the_bingo_board.tiles.where({:position=>11}).at(0).solved == true %>
+    <td id = "square11" class="table-success"> 
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>11}).at(0).id%>" method = "post" class = "btn btn-outline-success">
+        <button class = "btn btn-success">
+          <%= @the_bingo_board.tiles.where({:position=>11}).at(0).animal.name%>
+        </button>
+      </form>
+  <% else %>
+    <td id = "square11">
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>11}).at(0).id%>" method = "post"">
+        <button>
+          <%= @the_bingo_board.tiles.where({:position=>11}).at(0).animal.name%>
+        </button>
+      </form>
+    </td>
+  <% end %>
+  
+    <td id = "free" class ="table-success">Free</td>
+
+  <% if @the_bingo_board.tiles.where({:position=>12}).at(0).solved == true %>
+    <td id = "square12" class="table-success"> 
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>12}).at(0).id%>" method = "post" class = "btn btn-outline-success">
+        <button class = "btn btn-success">
+          <%= @the_bingo_board.tiles.where({:position=>12}).at(0).animal.name%>
+        </button>
+      </form>
+  <% else %>
+    <td id = "square12">
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>12}).at(0).id%>" method = "post"">
+        <button>
+          <%= @the_bingo_board.tiles.where({:position=>12}).at(0).animal.name%>
+        </button>
+      </form>
+    </td>
+  <% end %>
+  
+  <% if @the_bingo_board.tiles.where({:position=>13}).at(0).solved == true %>
+    <td id = "square13" class="table-success"> 
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>13}).at(0).id%>" method = "post" class = "btn btn-outline-success">
+        <button class = "btn btn-success">
+          <%= @the_bingo_board.tiles.where({:position=>13}).at(0).animal.name%>
+        </button>
+      </form>
+  <% else %>
+    <td id = "square13">
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>13}).at(0).id%>" method = "post"">
+        <button>
+          <%= @the_bingo_board.tiles.where({:position=>13}).at(0).animal.name%>
+        </button>
+      </form>
+    </td>
+  <% end %>
   </tr>
   <tr>
-    <td id = "square14">@the_bingo_board.tiles.where({:position => "0"})</td>
-    <td id = "square15">@the_bingo_board.tiles.where({:position => "0"})</td>
-    <td id = "square16">@the_bingo_board.tiles.where({:position => "0"})</td>
-    <td id = "square17">@the_bingo_board.tiles.where({:position => "0"})</td>
-    <td id = "square18">@the_bingo_board.tiles.where({:position => "0"})</td>
+  <% if @the_bingo_board.tiles.where({:position=>14}).at(0).solved == true %>
+    <td id = "square14" class="table-success"> 
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>14}).at(0).id%>" method = "post" class = "btn btn-outline-success">
+        <button class = "btn btn-success">
+          <%= @the_bingo_board.tiles.where({:position=>14}).at(0).animal.name%>
+        </button>
+      </form>
+  <% else %>
+    <td id = "square14">
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>14}).at(0).id%>" method = "post"">
+        <button>
+          <%= @the_bingo_board.tiles.where({:position=>14}).at(0).animal.name%>
+        </button>
+      </form>
+    </td>
+  <% end %>
+
+<% if @the_bingo_board.tiles.where({:position=>15}).at(0).solved == true %>
+    <td id = "square15" class="table-success"> 
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>15}).at(0).id%>" method = "post" class = "btn btn-outline-success">
+        <button class = "btn btn-success">
+          <%= @the_bingo_board.tiles.where({:position=>15}).at(0).animal.name%>
+        </button>
+      </form>
+  <% else %>
+    <td id = "square15">
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>15}).at(0).id%>" method = "post"">
+        <button>
+          <%= @the_bingo_board.tiles.where({:position=>15}).at(0).animal.name%>
+        </button>
+      </form>
+    </td>
+  <% end %>
+  
+  <% if @the_bingo_board.tiles.where({:position=>16}).at(0).solved == true %>
+    <td id = "square16" class="table-success"> 
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>16}).at(0).id%>" method = "post" class = "btn btn-outline-success">
+        <button class = "btn btn-success">
+          <%= @the_bingo_board.tiles.where({:position=>16}).at(0).animal.name%>
+        </button>
+      </form>
+  <% else %>
+    <td id = "square16">
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>16}).at(0).id%>" method = "post"">
+        <button>
+          <%= @the_bingo_board.tiles.where({:position=>16}).at(0).animal.name%>
+        </button>
+      </form>
+    </td>
+  <% end %>
+
+<% if @the_bingo_board.tiles.where({:position=>17}).at(0).solved == true %>
+    <td id = "square17" class="table-success"> 
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>17}).at(0).id%>" method = "post" class = "btn btn-outline-success">
+        <button class = "btn btn-success">
+          <%= @the_bingo_board.tiles.where({:position=>17}).at(0).animal.name%>
+        </button>
+      </form>
+  <% else %>
+    <td id = "square17">
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>17}).at(0).id%>" method = "post"">
+        <button>
+          <%= @the_bingo_board.tiles.where({:position=>17}).at(0).animal.name%>
+        </button>
+      </form>
+    </td>
+  <% end %>
+
+<% if @the_bingo_board.tiles.where({:position=>18}).at(0).solved == true %>
+    <td id = "square18" class="table-success"> 
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>18}).at(0).id%>" method = "post" class = "btn btn-outline-success">
+        <button class = "btn btn-success">
+          <%= @the_bingo_board.tiles.where({:position=>18}).at(0).animal.name%>
+        </button>
+      </form>
+  <% else %>
+    <td id = "square18">
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>18}).at(0).id%>" method = "post"">
+        <button>
+          <%= @the_bingo_board.tiles.where({:position=>18}).at(0).animal.name%>
+        </button>
+      </form>
+    </td>
+  <% end %>
   </tr>
   <tr>
-    <td id = "square19">@the_bingo_board.tiles.where({:position => "0"})</td>
-    <td id = "square20">@the_bingo_board.tiles.where({:position => "0"})</td>
-    <td id = "square21">@the_bingo_board.tiles.where({:position => "0"})</td>
-    <td id = "square22">@the_bingo_board.tiles.where({:position => "0"})</td>
-    <td id = "square23">@the_bingo_board.tiles.where({:position => "0"})</td>
+  <% if @the_bingo_board.tiles.where({:position=>19}).at(0).solved == true %>
+    <td id = "square19" class="table-success"> 
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>19}).at(0).id%>" method = "post" class = "btn btn-outline-success">
+        <button class = "btn btn-success">
+          <%= @the_bingo_board.tiles.where({:position=>19}).at(0).animal.name%>
+        </button>
+      </form>
+  <% else %>
+    <td id = "square19">
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>19}).at(0).id%>" method = "post"">
+        <button>
+          <%= @the_bingo_board.tiles.where({:position=>19}).at(0).animal.name%>
+        </button>
+      </form>
+    </td>
+  <% end %>
+
+<% if @the_bingo_board.tiles.where({:position=>20}).at(0).solved == true %>
+    <td id = "square20" class="table-success"> 
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>20}).at(0).id%>" method = "post" class = "btn btn-outline-success">
+        <button class = "btn btn-success">
+          <%= @the_bingo_board.tiles.where({:position=>20}).at(0).animal.name%>
+        </button>
+      </form>
+  <% else %>
+    <td id = "square20">
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>20}).at(0).id%>" method = "post"">
+        <button>
+          <%= @the_bingo_board.tiles.where({:position=>20}).at(0).animal.name%>
+        </button>
+      </form>
+    </td>
+  <% end %>
+
+  <% if @the_bingo_board.tiles.where({:position=>21}).at(0).solved == true %>
+    <td id = "square21" class="table-success"> 
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>21}).at(0).id%>" method = "post" class = "btn btn-outline-success">
+        <button class = "btn btn-success">
+          <%= @the_bingo_board.tiles.where({:position=>21}).at(0).animal.name%>
+        </button>
+      </form>
+  <% else %>
+    <td id = "square21">
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>21}).at(0).id%>" method = "post"">
+        <button>
+          <%= @the_bingo_board.tiles.where({:position=>21}).at(0).animal.name%>
+        </button>
+      </form>
+    </td>
+  <% end %>
+
+  <% if @the_bingo_board.tiles.where({:position=>22}).at(0).solved == true %>
+    <td id = "square22" class="table-success"> 
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>22}).at(0).id%>" method = "post" class = "btn btn-outline-success">
+        <button class = "btn btn-success">
+          <%= @the_bingo_board.tiles.where({:position=>22}).at(0).animal.name%>
+        </button>
+      </form>
+  <% else %>
+    <td id = "square22">
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>22}).at(0).id%>" method = "post"">
+        <button>
+          <%= @the_bingo_board.tiles.where({:position=>22}).at(0).animal.name%>
+        </button>
+      </form>
+    </td>
+  <% end %>
+
+  <% if @the_bingo_board.tiles.where({:position=>23}).at(0).solved == true %>
+    <td id = "square23" class="table-success"> 
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>23}).at(0).id%>" method = "post" class = "btn btn-outline-success">
+        <button class = "btn btn-success">
+          <%= @the_bingo_board.tiles.where({:position=>23}).at(0).animal.name%>
+        </button>
+      </form>
+  <% else %>
+    <td id = "square23">
+      <form action="/modify_bingo_tile/<%= @the_bingo_board.tiles.where({:position=>23}).at(0).id%>" method = "post"">
+        <button>
+          <%= @the_bingo_board.tiles.where({:position=>23}).at(0).animal.name%>
+        </button>
+      </form>
+    </td>
+  <% end %>
   </tr>
 </table>
+
+
 </div>
 
 <!--    <dl>

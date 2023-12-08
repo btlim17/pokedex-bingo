@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   post("/insert_bingo_board", { :controller => "bingo_boards", :action => "create" })
           
   # READ
-  get("/bingo_boards", { :controller => "bingo_boards", :action => "index" })
+  get("/insert_bingo_board/:path_id", { :controller => "bingo_boards", :action => "tiles" })
   
   get("/bingo_boards/:path_id", { :controller => "bingo_boards", :action => "show" })
   

@@ -1,10 +1,12 @@
 class BingoBoardsController < ApplicationController
-  def index
-    matching_bingo_boards = BingoBoard.all
+  def tiles
+    the_id = params.fetch("path_id")
 
-    @list_of_bingo_boards = matching_bingo_boards.order({ :created_at => :desc })
+    matching_bingo_boards = BingoBoard.where({ :id => the_id })
 
-    render({ :template => "bingo_boards/index" })
+    @the_bingo_board = matching_bingo_boards.at(0)
+
+    render({ :template => "bingo_boards/tiles" })
   end
 
   def show
@@ -24,7 +26,7 @@ class BingoBoardsController < ApplicationController
 
     if the_bingo_board.valid?
       the_bingo_board.save
-      redirect_to("/bingo_boards/#{the_bingo_board.id}", { :notice => "Bingo board created successfully." })
+      redirect_to("/insert_bingo_board/#{the_bingo_board.id}", { :notice => "Bingo board created successfully." })
     else
       redirect_to("/bingo_boards", { :alert => the_bingo_board.errors.full_messages.to_sentence })
     end

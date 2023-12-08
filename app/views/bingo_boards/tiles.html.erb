@@ -1,4 +1,12 @@
 <div>
+        <form action="/bingo_tiles/<%= @the_bingo_board.id %>/insert_tile" method ="post">
+        <button>
+        Generate tiles
+        </button>
+        </form>
+</div>
+
+<!--<div>
   <div>
     <h1>
       List of all bingo boards
@@ -67,36 +75,37 @@
         </th>
       </tr>
 
-      <% @list_of_bingo_boards.each do |a_bingo_board| %>
-      <tr>
+      <%# @list_of_bingo_boards.each do |a_bingo_board| %>-->
+<!--      <tr>
         <td>
-          <%= a_bingo_board.id %>
-        </td>
+          <%#= a_bingo_board.id %>-->
+<!--        </td>
 
         <td>
-          <%= a_bingo_board.user_id %>
-        </td>
+          <%#= a_bingo_board.user_id %>-->
+<!--        </td>
 
         <td>
-          <%= a_bingo_board.park_id %>
-        </td>
+          <%#= a_bingo_board.park_id %>-->
+<!--        </td>
 
         <td>
-          <%= time_ago_in_words(a_bingo_board.created_at) %> ago
-        </td>
+          <%#= time_ago_in_words(a_bingo_board.created_at) %> ago-->
+<!--        </td>
         <td>
-          <%= time_ago_in_words(a_bingo_board.updated_at) %> ago
-        </td>
+          <%#= time_ago_in_words(a_bingo_board.updated_at) %> ago-->
+<!--        </td>
 
         <td>
-          <a href="/bingo_boards/<%= a_bingo_board.id %>">
+          <a href="/bingo_boards/<%#= a_bingo_board.id %>">
             Show details
           </a>
         </td>
       </tr>
-      <% end %>
-    </table>
+      <%# end %>-->
+<!--    </table>
   </div>
 </div>
 
 <hr>
+-->
