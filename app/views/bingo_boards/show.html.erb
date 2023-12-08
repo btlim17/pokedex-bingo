@@ -41,9 +41,9 @@
   <tr>
   <%# @bingo_board.tile.each do |tile|%>
   <% if @the_bingo_board.tiles.where({:position=>0}).at(0).solved == true %>
-    <td id = "square0" class="table-success">
+    <td id = "square0" class="table-success"> <form action="/bingo_tiles/update" method = "post" class = "btn btn-outline-info"><button><%= @the_bingo_board.tiles.where({:position=>0}).at(0).animal.name%></button></form>
     <% else %>
-    <td id = "square0"><form action="/bingo_tiles/update" method = "post"><button><%= @the_bingo_board.tiles.where({:position=>0}).at(0).animal.name%></button></form></td>
+    <td id = "square0"><form action="/bingo_tiles/update" method = "post" class = "btn btn-success"><button><%= @the_bingo_board.tiles.where({:position=>0}).at(0).animal.name%></button></form></td>
   <% end %>
     <td id = "square1">@the_bingo_board.tiles.where({:position => "0"})</td>
     <td id = "square2">@the_bingo_board.tiles.where({:position => "0"})</td>
