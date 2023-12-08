@@ -1,4 +1,5 @@
-<div class = "text-primary">
+hello world
+<!--<div class="text-primary">
   <div>
     <h1>
       Welcome!
@@ -7,21 +8,30 @@
 </div>
 <p>
   <div>
-    <% if current_user!= nil%>
-    <h4>Serengeti Park Bingo Boards</h4>
+    <%# if current_user!=nil%>-->
+<!--    <h4>Serengeti Park Bingo Boards</h4>
       <p>
-        <form action="/insert_bingo_board" method = "post">
+        <form action="/insert_bingo_board" method="post">
         <input type="hidden" id="park_id_box" name="query_park_id" value="1">
-        <input type="hidden" id="user_id_box" name="query_user_id" value="<%= current_user.id %>">
+        <input type="hidden" id="user_id_box" name="query_user_id" value="<%#= current_user.id %>">
         <div><button class="btn btn-primary">Play a New Game</button></div>
+        </form>
       </p>
-      </form>
-      <% current_user.boards.each do |a_board|%>
-        <li><a href="/bingo_boards/<%@ a_board.id%>">Board <%@ a_board.id%></a></li>
-      <% end %>
+      
+    <div>
+        <u>Ongoing games</u>
+        <div>
+      <ul>
+      <%# current_user.boards.each do |a_board|%>-->
+<!--        <li><a href="/bingo_boards/<%#@ a_board.id%>">Board <%@ a_board.id%></a></li>-->
+      <%# end %>
+<!--      </ul>
+        </div>
+      </div>
 
-      <%else%>
-      Must be <a href="/users/sign_in">signed in</a> to add a new board.
-      <%end%>
-  </div>
+    <%#else%>-->
+<!--      Must be <a href="/users/sign_in">signed in</a> to add a new board.-->
+    <%#end%>
+<!--  </div>
 </p>
+-->
